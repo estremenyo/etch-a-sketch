@@ -22,6 +22,8 @@ function generateGrid(squaresPerLine) {
 
 function handleMouseover(e) {
     let darkenFactor = e.target.dataset.darkenFactor;
+
+    if (darkenFactor <= 0.2) darkenFactor = 0;
     let colorR = (Math.floor(Math.random() * 256)) * darkenFactor;
     let colorG = (Math.floor(Math.random() * 256)) * darkenFactor;
     let colorB = (Math.floor(Math.random() * 256)) * darkenFactor;
