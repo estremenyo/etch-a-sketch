@@ -1,13 +1,18 @@
 const container = document.querySelector(".container");
 
-for (let i = 0; i < 256; i++) {
-    let div = document.createElement("div");
-    div.setAttribute("class", "gridElement");
-    container.appendChild(div);
+function generateGrid(squares) {
+    Array.from(container.children).forEach(child => child.remove());
+    for (let i = 0; i < squares * squares; i++) {
+        let div = document.createElement("div");
+        div.setAttribute("class", "gridElement");
+        container.appendChild(div);
+    }
+    const gridList = document.querySelectorAll("div.gridElement");
+    gridList.forEach(element => element.addEventListener("mouseover", handleMouseover));  
 }
 
-const gridList = document.querySelectorAll("div.gridElement");
-gridList.forEach(grid => grid.addEventListener("mouseover", handleMouseover));  
+generateGrid(16);
+
 
 function handleMouseover(e) {
     e.target.setAttribute("class", "hovered");
@@ -18,15 +23,8 @@ button.addEventListener("click", handleButton);
 
 function handleButton() {
     let response = "";
-    do {
+    while (isNaN(response) || !Number.isInteger(response) || response > 100 || response < 0) {
         response = Number(prompt("How many squares per line? (Default 16, Max 100)"));
     }
-    while (isNaN(response) || !Number.isInteger(response) || response > 100 || response < 0)
-    generateNewGrid(response);
-}
-
-
-// TODO
-function generateNewGrid(squares) {
-    console.log(squares);
+    generateGrid(response);
 }
