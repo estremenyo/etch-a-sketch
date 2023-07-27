@@ -15,14 +15,6 @@ div.main {
     flex-direction: column;
 }
 
-div.gridElement {
-    flex: 1 0 initial;
-}
-
-div.hovered {
-    background: black;
-}
-
 div.container {
     background: white;
     display: flex;
