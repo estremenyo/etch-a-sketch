@@ -13,17 +13,21 @@ function generateGrid(squaresPerLine) {
         div.style.height = `${dimensions}%`;
         div.style.width = `${dimensions}%`;
 
+        div.dataset.darkenFactor = 1;
+
         div.addEventListener("mouseover", handleMouseover);
         container.appendChild(div);
     }
 }
 
 function handleMouseover(e) {
-    let colorR = Math.floor(Math.random() * 256);
-    let colorG = Math.floor(Math.random() * 256);
-    let colorB = Math.floor(Math.random() * 256);
+    let darkenFactor = e.target.dataset.darkenFactor;
+    let colorR = (Math.floor(Math.random() * 256)) * darkenFactor;
+    let colorG = (Math.floor(Math.random() * 256)) * darkenFactor;
+    let colorB = (Math.floor(Math.random() * 256)) * darkenFactor;
 
     e.target.style.background = `rgb(${colorR}, ${colorG}, ${colorB})`;
+    e.target.dataset.darkenFactor = darkenFactor - 0.1;
 }
 
 
