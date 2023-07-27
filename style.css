@@ -16,15 +16,10 @@ div.main {
 }
 
 div.gridElement {
-    width: 6.25%;
-    height: 6.25%;
-    flex: 0 0 initial;
+    flex: 1 0 initial;
 }
 
 div.hovered {
-    width: 6.25%;
-    height: 6.25%;
-    flex: 0 0 initial;
     background: black;
 }
 
@@ -35,7 +30,13 @@ div.container {
     width: 500px;
     height: 500px;
     padding: 0px;
-
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 
     flex-wrap: wrap;
+}
+
+button {
+    padding: 5px 10px;
 }
